@@ -418,9 +418,10 @@ public class SwipeToDismissTouchListener<SomeCollectionView extends ViewAdapter>
         // Notify the callbacks
         mCallbacks.onPendingDismiss(mRecyclerView, dismissPosition);
         // Automatically dismiss the item after a certain delay
-        if(mDismissDelayMillis >= 0)
+        if(mDismissDelayMillis >= 0) {
             mHandler.removeCallbacks(mDismissRunnable);
             mHandler.postDelayed(mDismissRunnable, mDismissDelayMillis);
+        }
     }
 
     /**
